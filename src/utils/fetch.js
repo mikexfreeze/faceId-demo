@@ -5,13 +5,18 @@ import axios from 'axios';
 import {Message} from 'element-ui';
 
 // 创建axios实例
-let formData = new FormData();
-formData.append("api_key", "IPsGmy_z_Am7HLpkCidE66V3YhorqMV-")
-formData.append("api_secret", "snuKyJhyogbgjP1h4tIZLg8r_vwgbI2v")
+
+
+export function DefaultData() {
+    let formData = new FormData();
+    formData.append("api_key", "IPsGmy_z_Am7HLpkCidE66V3YhorqMV-")
+    formData.append("api_secret", "snuKyJhyogbgjP1h4tIZLg8r_vwgbI2v")
+    return formData
+};
 const service = axios.create({
-    baseURL: process.env.BASE_API, // api的base_url
+    method: 'post',
     timeout: 10000,                  // 请求超时时间
-    data: formData,                  // 默认data时间
+    data: DefaultData(),                  // 默认data时间
 });
 
 
@@ -28,7 +33,7 @@ service.interceptors.response.use(
         console.log(error)
         // if()
         Message({
-            message: error.response.data
+            message: error.message,
             type: 'error',
             duration: 3 * 1000
         });

@@ -15,6 +15,10 @@
                   <li class="nav-item">
                       <a class="nav-link" @click="$router.push({name:'face集合'})">face集合</a>
                   </li>
+                  <li class="nav-item">
+                      <router-link class="nav-link" :to="{name:'face集合管理'}">集合管理</router-link>
+                      <!--<a class="nav-link" @click="$router.push({name:'首页'})">首页</a>-->
+                  </li>
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Dropdown
